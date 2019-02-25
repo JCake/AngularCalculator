@@ -230,5 +230,33 @@ describe('AppComponent', () => {
     expect(compiledDOM.querySelector('.mainScreen').textContent).toEqual('17');    
   });
 
-  // TODO typing numbers after having pressed = should replace input
+  it('should start and perform a new calculation if new numbers are entered right after =', () => {
+    fixture.detectChanges();
+    const plusButton = compiledDOM.querySelector('button.plusButton');
+    const equalsButton = compiledDOM.querySelector('button.equalsButton');
+
+    const twoButton = compiledDOM.querySelector('#button2');
+    twoButton.click();
+    plusButton.click();
+    const fiveButton = compiledDOM.querySelector('#button5');
+    fiveButton.click();
+    equalsButton.click();
+    fixture.detectChanges();
+    expect(compiledDOM.querySelector('.superScreen').textContent).toEqual('');
+    expect(compiledDOM.querySelector('.mainScreen').textContent).toEqual('7');
+    
+    const sixButton = compiledDOM.querySelector('#button6');
+    sixButton.click();
+    twoButton.click();
+    fixture.detectChanges();
+    expect(compiledDOM.querySelector('.superScreen').textContent).toEqual('');
+    expect(compiledDOM.querySelector('.mainScreen').textContent).toEqual('62');
+    plusButton.click();
+    const fourButton = compiledDOM.querySelector('#button4');
+    fourButton.click();
+    equalsButton.click();
+    fixture.detectChanges();
+    expect(compiledDOM.querySelector('.superScreen').textContent).toEqual('');
+    expect(compiledDOM.querySelector('.mainScreen').textContent).toEqual('66');    
+  });
 });
