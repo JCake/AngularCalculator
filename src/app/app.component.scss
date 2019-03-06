@@ -1,14 +1,16 @@
-$mainColor: purple;
-
 .calculator {
     width: 200px;
 }
+div#calculator {
+    margin-left: calc(50% - 100px);
+    margin-bottom: 8px;
+}
 .wholeScreen {
     width: 198px;
-    border: 1px solid $mainColor;
+    border-style: solid;
+    border-width: 1px;
     height: 40px;
     text-align: right;   
-    color: $mainColor;
 }
 .superScreen {
     height: 10px;
@@ -25,7 +27,5 @@ button {
     width: 33%;
     height: 40px;
     background-color: white;
-    color: $mainColor;
     border-style: ridge;
-    border-color: $mainColor;
 }

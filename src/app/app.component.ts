@@ -11,6 +11,7 @@ export class AppComponent {
   superscript = '';
   input = '';
   equalsJustPressed = false;
+  selectedColor = '#A020F0';
 
   appendToInput(num) {
     if(this.equalsJustPressed) {

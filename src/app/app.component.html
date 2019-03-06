@@ -1,25 +1,34 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div style="text-align:center; align-content: center" [style.color]="selectedColor">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <div class="calcuator">
-    <div class="wholeScreen">
+  <div class="calcuator" id="calculator">
+    <div class="wholeScreen" [style.border-color]="selectedColor" [style.color]="selectedColor">
       <div class="superScreen">{{superscript}}</div>
       <div class="mainScreen">{{input}}</div>
     </div>
     <div class="keyPad">
       <button *ngFor="let num of [7,8,9,4,5,6,1,2,3]" class="numberButton" id="button{{num}}"
+        [style.border-color]="selectedColor" [style.color]="selectedColor" 
         (click)="appendToInput(num)">
         {{num}}
       </button>
-      <button class="plusButton" (click)="prepareToAdd()">+</button>
-      <button class="numberButton" (click)="appendToInput(0)" id="button0">0</button>
-      <button class="equalsButton" (click)="executeEquals()">=</button>
+      <button class="plusButton" [style.border-color]="selectedColor" [style.color]="selectedColor"
+      (click)="prepareToAdd()">+</button>
+      <button class="numberButton" [style.border-color]="selectedColor" [style.color]="selectedColor"
+      (click)="appendToInput(0)" id="button0">0</button>
+      <button class="equalsButton" [style.border-color]="selectedColor" [style.color]="selectedColor"
+      (click)="executeEquals()">=</button>
       <div>
-        <button class="clearButton" class="clearButton" (click)="clearInput()">Clear</button>
+        <button class="clearButton" [style.border-color]="selectedColor" [style.color]="selectedColor"
+        (click)="clearInput()">Clear</button>
       </div>
     </div>
+  </div>
+
+  <div>
+    <label for="colorInput">Color:</label><input id="colorInput" type="color" [(ngModel)]="selectedColor"/>
   </div>
   
 </div>
