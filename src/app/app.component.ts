@@ -13,7 +13,7 @@ export class AppComponent {
   equalsJustPressed = false;
   selectedColor = '#A020F0';
 
-  appendToInput(num) {
+  appendToInput(num: number) {
     if(this.equalsJustPressed) {
       this.clearInput();
     }
