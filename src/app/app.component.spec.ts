@@ -1,11 +1,11 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
-  let fixture;
-  let app;
-  let compiledDOM;
+  let fixture : ComponentFixture<AppComponent>;
+  let app: any;
+  let compiledDOM: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -37,7 +37,7 @@ describe('AppComponent', () => {
     const numberButtons: NodeList = compiledDOM.querySelectorAll('button.numberButton');
     expect(numberButtons.length).toEqual(10);
     const buttonTexts: string[] = [];
-    numberButtons.forEach((button) => buttonTexts.push(button.textContent.trim()));
+    numberButtons.forEach((button) => buttonTexts.push((button.textContent as string).trim()));
     for(let i = 0; i <= 9; i++){
       expect(buttonTexts.indexOf(`${i}`)).toBeGreaterThan(-1);
     }
