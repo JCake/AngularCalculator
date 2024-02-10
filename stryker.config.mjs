@@ -15,14 +15,12 @@ const config = {
     projectType: "angular-cli",
     config: {
       browsers: ["ChromeHeadless"],
-      autoWatch: false // added after initial generation
     },
   },
   reporters: ["progress", "clear-text", "html"],
-  concurrency: 1,
+  concurrency: 2, // increased from 1
   concurrency_comment:
     "Recommended to use about half of your available cores when running stryker with angular",
-  coverageAnalysis: "perTest",
-  buildCommand: "npm run build",
+  coverageAnalysis: "perTest"
 };
 export default config;
